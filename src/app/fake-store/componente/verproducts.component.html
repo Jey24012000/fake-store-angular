@@ -1,0 +1,24 @@
+<h1>Mercado libre</h1>
+
+<p>Productos agregados a carrito: {{productos_carrito}} </p>
+<ul>
+  <li *ngIf="titles.length === 0">La lista esta vacia</li>
+  <li *ngFor="let title of titles;index as i">
+    {{i +1}}.- {{title}}
+    <button (click)="deleteCarrito(i)">Delete</button>
+  </li>
+</ul>
+<p>Total carrito: {{precio}}</p>
+
+<h2 >Basado en tu ultima vista</h2>
+<section class="products-grid">
+  <div *ngFor="let products of arreglo">
+    <h3> {{products.title}}</h3>
+    <p> $ {{products.price}}</p>
+    <img src="{{products.image}}" alt="">
+    <button (click)="agregarCarrito(products.title,products.price)">Agregar al carrito</button>
+ 
+  </div>
+</section>
+
+
